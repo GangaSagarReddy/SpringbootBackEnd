@@ -67,6 +67,7 @@ public class EmployeeController {
     	 employee.setSalary(employeeDetails.getSalary());
     	 employee.setGender(employeeDetails.getGender());
     	 employee.setDob(employeeDetails.getDob());
+    	 employee.setImage(employeeDetails.getImage());
 
     	 
     	 Employee updatedEmployee = employeeRepository.save(employee);
