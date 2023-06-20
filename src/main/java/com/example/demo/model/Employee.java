@@ -3,9 +3,12 @@ package com.example.demo.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
+//import org.springframework.web.multipart.MultipartFile;
+
 import jakarta.persistence.Column;
 
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 
@@ -38,13 +41,18 @@ public class Employee {
 	@Column(name="dob")
 	private String dob;
 	
+	 @Lob
+	    @Column(name = "image", columnDefinition = "LONGBLOB")
+	    private byte[] image;
+//	private MultipartFile file;
+	
 	public Employee() {
 		
 	}
 	
 	
 	
-	public Employee(String firstName, String lastName, String emailId,String department,String salary,String gender,String dob) {
+	public Employee(String firstName, String lastName, String emailId,String department,String salary,String gender,String dob,byte[] image) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -53,6 +61,7 @@ public class Employee {
 		this.salary = salary;
 		this.gender = gender;
 		this.dob = dob;
+        this.image = image;
 
 	}
 	public long getId() {
@@ -103,7 +112,13 @@ public class Employee {
 	public void setDob(String dob) {
 		this.dob = dob;
 	}
-	
-	
+	 public byte[] getImage() {
+	        return image;
+	    }
+
+	 public void setImage(byte[] image) {
+	        this.image = image;
+	    }
+
 
 }
